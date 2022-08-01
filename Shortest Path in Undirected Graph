@@ -1,0 +1,30 @@
+#include<bits/stdio.h>
+using namespace std;
+
+vector<int> shortestPath(int n, vector<vector<int>> &adj){
+
+    vector<int> dis(n,INT_MAX);
+
+    queue<int> q;
+    dis[0] = 0;
+    q.push(0);
+
+    while(!q.empty()){
+
+        int front = q.front(); q.pop();
+         for(auto it : adj[front]){
+
+            if(dis[it] > dis[front] + 1){
+                dis[it] = dis[front] +1;
+                q.push(it);
+            }
+         }
+
+    }
+
+    return dis;
+}
+
+int main(){
+
+}
